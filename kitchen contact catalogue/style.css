@@ -1,10 +1,10 @@
     /* Modern, refined CSS for Kitchen Contact */
     :root {
-      --primary: #D4A373; /* Warm terracotta */
-      --secondary: #6B9080; /* Muted teal */
-      --accent: #A4C3B2; /* Soft sage */
-      --light: #F6FFF8; /* Off-white */
-      --dark: #2B3D41; /* Dark slate */
+      --primary: #b27918;        /* Your original dark orange (slightly warmer) */
+      --secondary: #e0ad40;      /* Bright medium orange */
+      --accent: #c58b2d;         /* Vibrant light orange */
+      --dark: #A35628;           /* Deep dark orange (for contrast) */
+      --light: #ffd667;          /* Pale orange (for highlights) */
       --text: #3A3A3A; /* Dark gray */
       --text-light: #7D7D7D; /* Medium gray */
       --shadow: 0 4px 12px rgba(0,0,0,0.08);
