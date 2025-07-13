@@ -228,3 +228,54 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', animateOnScroll);
 });
 
+
+// Replace your preloader JavaScript with this
+document.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.querySelector('.preloader');
+    const progressFill = document.querySelector('.progress-fill');
+    const percentage = document.querySelector('.percentage');
+    const minDisplayTime = 3000; // 3 seconds minimum
+    const startTime = Date.now();
+    
+    // Simulate progress (or use real loading events)
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+      progress += Math.random() * 10;
+      if (progress > 100) progress = 100;
+      
+      progressFill.style.width = `${progress}%`;
+      percentage.textContent = `${Math.floor(progress)}%`;
+      
+      if (progress >= 100) {
+        clearInterval(progressInterval);
+        const elapsed = Date.now() - startTime;
+        const remainingTime = Math.max(minDisplayTime - elapsed, 0);
+        
+        setTimeout(() => {
+          preloader.classList.add('fade-out');
+          preloader.addEventListener('transitionend', () => {
+            preloader.style.display = 'none';
+          });
+        }, remainingTime);
+      }
+    }, 150);
+    
+    // Real loading events (uncomment to use instead of simulation)
+    
+    window.addEventListener('load', function() {
+      progress = 100;
+      progressFill.style.width = '100%';
+      percentage.textContent = '100%';
+      
+      const elapsed = Date.now() - startTime;
+      const remainingTime = Math.max(minDisplayTime - elapsed, 0);
+      
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        preloader.addEventListener('transitionend', () => {
+          preloader.style.display = 'none';
+        });
+      }, remainingTime);
+    });
+
+  });
