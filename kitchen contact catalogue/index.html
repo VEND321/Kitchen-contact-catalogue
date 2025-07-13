@@ -10,6 +10,127 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="asset/favicon.ico" type="image/x-icon">
+    <style>
+        /* Replace your current preloader CSS with this */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #fff8f8 0%,#7b5006 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+.preloader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo-loading {
+  width: 120px;
+  height: 120px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-loading img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.3));
+}
+
+.loading-progress {
+  width: 100%;
+}
+
+.progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #b27918 0%, #e0ad40 100%);
+  border-radius: 10px;
+  transition: width 0.4s ease-out;
+}
+
+.percentage {
+  color: #e0ad40;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.loading-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
+.message-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.loading-dots .dot {
+  opacity: 0;
+  animation: dotPulse 1.5s infinite;
+  font-size: 2rem;
+  line-height: 0;
+}
+
+.loading-dots .dot:nth-child(1) { animation-delay: 0.2s; }
+.loading-dots .dot:nth-child(2) { animation-delay: 0.4s; }
+.loading-dots .dot:nth-child(3) { animation-delay: 0.6s; }
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { 
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    color: #e0ad40;
+  }
+}
+
+/* Fade out effect */
+.preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+        </style>
     <link rel="stylesheet" href="style.css">
     <script type="application/ld+json">
     {
@@ -42,6 +163,30 @@
     </script>
 </head>
 <body>
+     <!-- Replace your current preloader HTML with this -->
+<div class="preloader">
+    <div class="preloader-container">
+      <div class="logo-loading">
+        <img src="asset/logo.jpeg" alt="Kitchen Contact Logo">
+      </div>
+      
+      <div class="loading-progress">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="percentage">0%</div>
+      </div>
+      
+      <div class="loading-message">
+        <span class="message-text">Preparing your premium rentals...</span>
+        <div class="loading-dots">
+          <span class="dot">.</span>
+          <span class="dot">.</span>
+          <span class="dot">.</span>
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -129,7 +274,6 @@
                 <button class="tab-btn" data-tab="acrylic-chargers">Acrylic Charger Plates</button>
                 <button class="tab-btn" data-tab="dinner-sets">Dinner/Side Set Plates</button>
                 <button class="tab-btn" data-tab="vip-sets">VIP Charger Sets</button>
-                <button class="tab-btn" data-tab="cutleries">Cutleries</button>
                 <button class="tab-btn" data-tab="cups">Cups</button>
                 <button class="tab-btn" data-tab="bowls">Sauce/Soup Bowls</button>
                 <button class="tab-btn" data-tab="others">Others</button>
